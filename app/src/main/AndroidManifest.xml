@@ -13,9 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartPantry"
-        android:usesCleartextTraffic="true"> <!-- Added this so your local http server works -->
+        android:usesCleartextTraffic="true">
 
-        <!-- 1. The MAIN Activity (The Login Screen) -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -25,9 +24,20 @@
             </intent-filter>
         </activity>
 
-        <!-- 2. The Register Activity -->
         <activity
             android:name=".RegisterActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".LogoutActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ForgotPasswordActivity"
             android:exported="false" />
 
     </application>

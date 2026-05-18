@@ -1,5 +1,6 @@
 package com.example.smartpantry;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,16 @@ import java.util.List;
 
 public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.ViewHolder> {
     private List<JSONObject> list;
+    private OnItemClickListener listener;
 
-    public PantryAdapter(List<JSONObject> list) { this.list = list; }
+    public interface OnItemClickListener {
+        void onItemClick(JSONObject item);
+    }
+
+    public PantryAdapter(List<JSONObject> list, OnItemClickListener listener) {
+        this.list = list;
+        this.listener = listener;
+    }
 
     @NonNull
     @Override
@@ -26,9 +35,22 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.ViewHolder
         try {
             JSONObject item = list.get(position);
             holder.name.setText(item.getString("ingredient_name"));
-            holder.price.setText("$" + item.getDouble("price"));
+            holder.price.setText("$" + String.format("%.2f", item.getDouble("price")));
+            
             int available = item.getInt("is_available");
-            holder.status.setText(available == 1 ? "In Stock" : "Out of Stock");
+            if (available == 1) {
+                holder.status.setText("In Stock");
+                holder.status.setTextColor(Color.parseColor("#388E3C")); // Green
+            } else {
+                holder.status.setText("Out of Stock");
+                holder.status.setTextColor(Color.parseColor("#E53E3E")); // Red
+            }
+
+            holder.itemView.setOnClickListener(v -> {
+                if (listener != null) {
+                    listener.onItemClick(item);
+                }
+            });
         } catch (Exception e) { e.printStackTrace(); }
     }
 
