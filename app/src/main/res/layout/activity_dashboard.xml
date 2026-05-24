@@ -4,60 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8FAFC">
+    android:background="@color/bg_light">
 
+    <!-- Header Background -->
     <View
         android:id="@+id/headerBackground"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="#2D3748"
+        android:background="@color/primary_dark"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Title -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
-        android:text="My Pantry"
-        android:textColor="#FFFFFF"
+        android:text="@string/my_pantry"
+        android:textColor="@color/white"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Pantry Items List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPantry"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:clipToPadding="false"
-        android:paddingBottom="80dp"
+        android:paddingBottom="88dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headerBackground"
         tools:listitem="@layout/item_pantry" />
 
+    <!-- Floating Action Button: Add Item -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAddIngredient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/add_ingredient_desc"
         android:src="@android:drawable/ic_input_add"
         app:backgroundTint="@color/accent_teal"
         app:layout_constraintBottom_toTopOf="@+id/btnBackLogout"
         app:layout_constraintEnd_toEndOf="parent"
         app:tint="@color/white" />
 
+    <!-- Extended FAB: Logout -->
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/btnBackLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
-        android:text="Logout"
-        android:textColor="#FFFFFF"
-        app:backgroundTint="#E53E3E"
+        android:text="@string/logout"
+        android:textColor="@color/white"
+        android:contentDescription="@string/logout_desc"
+        app:backgroundTint="@color/error_red"
         app:icon="@android:drawable/ic_lock_power_off"
-        app:iconTint="#FFFFFF"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

@@ -62,7 +62,7 @@
                 android:layout_marginTop="2dp"
                 android:text="In Stock"
                 android:textSize="14sp"
-                android:textStyle="normal|bold" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <TextView

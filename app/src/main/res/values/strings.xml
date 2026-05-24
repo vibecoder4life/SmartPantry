@@ -21,4 +21,6 @@
     <!-- Dashboard Strings -->
     <string name="my_pantry">My Pantry</string>
     <string name="logout">Logout</string>
+    <string name="add_ingredient_desc">Add new ingredient</string>
+    <string name="logout_desc">Logout of account</string>
 </resources>
