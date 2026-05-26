@@ -16,7 +16,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     private TextView tvBackToLogin;
 
     private final OkHttpClient client = new OkHttpClient();
-    private final String baseUrl = "http://10.0.2.2:5000";
+    private final String baseUrl = "http://192.168.1.150:5000/";
     private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
 
     @Override

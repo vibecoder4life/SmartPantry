@@ -17,7 +17,7 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView txtBackToLogin;
     
     private final OkHttpClient client = new OkHttpClient();
-    private final String baseUrl = "http://10.0.2.2:5000";
+    private final String baseUrl = "http://192.168.1.150:5000";
     private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
 
     @Override
@@ -25,7 +25,6 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // Bind Views
         regName = findViewById(R.id.regName);
         regEmail = findViewById(R.id.regEmail);
         regUsername = findViewById(R.id.regUsername);
@@ -33,10 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegisterSubmit = findViewById(R.id.btnRegisterSubmit);
         txtBackToLogin = findViewById(R.id.txtBackToLogin);
 
-        // Submit Registration
         btnRegisterSubmit.setOnClickListener(v -> performRegister());
-
-        // Go back to Login
         txtBackToLogin.setOnClickListener(v -> finish());
     }
 
@@ -58,13 +54,14 @@ public class RegisterActivity extends AppCompatActivity {
             jsonBody.put("username", user);
             jsonBody.put("password", pass);
 
-            RequestBody body = RequestBody.create(jsonBody.toString(), JSON);
+            // Corrected parameter order for OkHttp 4.x: (MediaType, String)
+            RequestBody body = RequestBody.create(JSON, jsonBody.toString());
             Request request = new Request.Builder().url(baseUrl + "/register").post(body).build();
 
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
-                    runOnUiThread(() -> Toast.makeText(RegisterActivity.this, "Server error", Toast.LENGTH_SHORT).show());
+                    runOnUiThread(() -> Toast.makeText(RegisterActivity.this, "Server error. Check IP!", Toast.LENGTH_SHORT).show());
                 }
 
                 @Override
@@ -72,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         runOnUiThread(() -> {
                             Toast.makeText(RegisterActivity.this, "Account Created! Please Login", Toast.LENGTH_LONG).show();
-                            finish(); // Returns to Login page
+                            finish();
                         });
                     } else {
                         runOnUiThread(() -> Toast.makeText(RegisterActivity.this, "Registration failed (User may exist)", Toast.LENGTH_SHORT).show());
@@ -81,7 +78,6 @@ public class RegisterActivity extends AppCompatActivity {
             });
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(this, "Error creating request", Toast.LENGTH_SHORT).show();
         }
     }
 }

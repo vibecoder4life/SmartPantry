@@ -18,6 +18,10 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.ViewHolder
         void onItemClick(JSONObject item);
     }
 
+    public PantryAdapter(List<JSONObject> list) {
+        this.list = list;
+    }
+
     public PantryAdapter(List<JSONObject> list, OnItemClickListener listener) {
         this.list = list;
         this.listener = listener;
@@ -34,10 +38,10 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         try {
             JSONObject item = list.get(position);
-            holder.name.setText(item.getString("ingredient_name"));
-            holder.price.setText("$" + String.format("%.2f", item.getDouble("price")));
+            holder.name.setText(item.optString("ingredient_name", "Unknown"));
+            holder.price.setText("$" + String.format("%.2f", item.optDouble("price", 0.0)));
             
-            int available = item.getInt("is_available");
+            int available = item.optInt("is_available", 0);
             if (available == 1) {
                 holder.status.setText("In Stock");
                 holder.status.setTextColor(Color.parseColor("#388E3C")); // Green
@@ -55,7 +59,9 @@ public class PantryAdapter extends RecyclerView.Adapter<PantryAdapter.ViewHolder
     }
 
     @Override
-    public int getItemCount() { return list.size(); }
+    public int getItemCount() { 
+        return list != null ? list.size() : 0; 
+    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView name, price, status;

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg_light">
 
-    <!-- Unified Brand Header -->
+
     <View
         android:id="@+id/headerBackground"
         android:layout_width="match_parent"
@@ -26,7 +26,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Auth Card (Login) -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/authCard"
         android:layout_width="match_parent"
@@ -117,7 +116,7 @@
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
-    <!-- Legacy Dashboard Container (Styled to match, but initially hidden) -->
+
     <LinearLayout
         android:id="@+id/dashboardContainer"
         android:layout_width="match_parent"
@@ -127,8 +126,7 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvAppName">
-        
-        <!-- Hidden logic views for backward compatibility -->
+
         <EditText android:id="@+id/inputIngredientName" android:layout_width="match_parent" android:layout_height="wrap_content" />
         <EditText android:id="@+id/inputPrice" android:layout_width="match_parent" android:layout_height="wrap_content" />
         <CheckBox android:id="@+id/checkAvailable" android:layout_width="wrap_content" android:layout_height="wrap_content" />

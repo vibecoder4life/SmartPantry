@@ -11,7 +11,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Consistent Dark Header -->
         <View
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -24,7 +23,6 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-            <!-- Profile-style Image Picker -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardIngredientImage"
                 android:layout_width="100dp"
