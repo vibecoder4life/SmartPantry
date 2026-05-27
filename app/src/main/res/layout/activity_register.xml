@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:background="@color/bg_light">
 
-    <!-- Brand Header -->
     <View
         android:id="@+id/headerBackground"
         android:layout_width="match_parent"
@@ -52,7 +51,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <!-- Name Field -->
+
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -69,7 +68,7 @@
                     android:textColor="@color/primary_dark" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Email Field -->
+
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -86,7 +85,7 @@
                     android:textColor="@color/primary_dark" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Username Field -->
+
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -103,7 +102,7 @@
                     android:textColor="@color/primary_dark" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Password Field -->
+
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"

@@ -5,20 +5,20 @@
     <string name="logout_goodbye">See you next time!</string>
     <string name="back_to_signin">Back to Sign In</string>
     
-    <!-- Login/Main Strings -->
+
     <string name="welcome_back">Welcome Back</string>
     <string name="username_hint">Username</string>
     <string name="password_hint">Password</string>
     <string name="sign_in">Sign In</string>
     <string name="create_account_prompt">Don\'t have an account? Create one</string>
     
-    <!-- Register Strings -->
+
     <string name="join_title">Join Smart Pantry 🍲</string>
     <string name="create_new_account">Create New Account</string>
     <string name="register">Register</string>
     <string name="already_have_account">Already have an account? Sign In</string>
     
-    <!-- Dashboard Strings -->
+
     <string name="my_pantry">My Pantry</string>
     <string name="logout">Logout</string>
     <string name="add_ingredient_desc">Add new ingredient</string>
